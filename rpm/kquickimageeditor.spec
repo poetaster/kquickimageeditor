@@ -76,8 +76,8 @@ popd
 
 %files devel
 %license LICENSES/*
-%{opt_kf5_libdir}/cmake/KQuickImageEditor/
-%{_opt_qt5_datadir}/mkspecs/modules/qt_KQuickImageEditor.pri
+%{_opt_kf5_libdir}/cmake/KQuickImageEditor/
+%{_opt_kf5_archdatadir}/mkspecs/modules/qt_KQuickImageEditor.pri
 
 %changelog
 
