@@ -1,4 +1,6 @@
 %global kf5_version 5.105.0
+%global qt_version 5.15.9
+
 Name:           opt-kf5-kquickimageeditor
 Version:        0.2.0
 Release:        0
@@ -11,12 +13,15 @@ Source0:        %{name}-%{version}.tar.xz
                                                                               
 BuildRequires:  opt-extra-cmake-modules >= %{kf5_version}                     
 BuildRequires:  opt-kf5-rpm-macros >= %{kf5_version}                          
-BuildRequires:  opt-qt5-qtbase-devel                                          
-BuildRequires:  opt-qt5-qttools-devel                                         
-BuildRequires:  opt-kf5-kconfig-devel               
-BuildRequires:  opt-kf5-kwidgetsaddons-devel        
-                                          
-%{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}              
+BuildRequires:  opt-qt5-qtbase-devel >= %{qt_version}
+BuildRequires:  opt-qt5-qtbase-private-devel
+BuildRequires:  opt-qt5-qtquickcontrols-devel >= %{qt_version}
+
+%{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
+Requires: opt-qt5-qtbase-gui >= %{qt_version}
+Requires: opt-qt5-qtquickcontrols >= %{qt_version}
+
+
 
 %description
 KQuickImageEditor is a set of QtQuick components providing basic image editing
