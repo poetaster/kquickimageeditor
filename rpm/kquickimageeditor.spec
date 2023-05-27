@@ -55,6 +55,7 @@ mkdir -p build
 pushd build                                                             
                                                                         
 %_opt_cmake_kf5 ../                                                     
+
 %make_build                                                             
                                                                         
 popd                                                                    
@@ -76,8 +77,8 @@ popd
 
 %files devel
 %license LICENSES/*
-%{_opt_kf5_cmakedir}/KQuickImageEditor/
-%{_opt_kf5_mkspecsdir}/qt_KQuickImageEditor.pri
+%{opt_kf5_libdir}/cmake/cmake/KQuickImageEditor/
+%{_qt5_datadir}/mkspecs/modules/qt_KQuickImageEditor.pri
 
 %changelog
 
