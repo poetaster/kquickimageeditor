@@ -12,9 +12,10 @@ Source0:        %{name}-%{version}.tar.xz
 
                                                                               
 BuildRequires: opt-extra-cmake-modules >= %{kf5_version}                     
+BuildRequires: opt-kf5-rpm-macros >= %{kf5_version}                     
 BuildRequires: opt-qt5-qtbase-devel >= %{qt_version}
 BuildRequires: opt-qt5-qtbase-static >= %{qt_version}
-BuildRequires: opt-qt5-qtbase-private-devel
+BuildRequires: opt-qt5-qtbase-private-devel >= %{qt_version}
 BuildRequires: opt-kf5-kcoreaddons-devel >= %{kf5_version}
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
 BuildRequires: opt-qt5-qtdeclarative-devel
