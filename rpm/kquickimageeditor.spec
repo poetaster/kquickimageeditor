@@ -10,10 +10,10 @@ Group:          System/GUI/KDE
 URL:            https://www.kde.org
 Source0:        %{name}-%{version}.tar.xz
 
-%{?opt_kf5_default_filter} 
-                                                                              
-BuildRequires: opt-extra-cmake-modules >= %{kf5_version}                     
-BuildRequires: opt-kf5-rpm-macros >= %{kf5_version}                     
+%{?opt_kf5_default_filter}
+
+BuildRequires: opt-extra-cmake-modules >= %{kf5_version}
+BuildRequires: opt-kf5-rpm-macros >= %{kf5_version}
 BuildRequires: opt-qt5-qtbase-devel >= %{qt_version}
 BuildRequires: opt-kf5-kcoreaddons-devel >= %{kf5_version}
 BuildRequires: opt-qt5-qtdeclarative-devel
@@ -43,29 +43,21 @@ Requires:       %{name}-imports = %{version}
 Development files for KQuickImageEditor, a set of QtQuick components providing
 basic image editing capabilities.
 
-%prep                                                                   
-%autosetup -n %{name}-%{version}/upstream -p1                           
-                                                                        
-%build                                                                  
-export QTDIR=%{_opt_qt5_prefix}                                         
-touch .git                                                              
-                                                                        
-mkdir -p build                                                          
-pushd build                                                             
-                                                                        
-%_opt_cmake_kf5 ../                                                     
+%prep
+%autosetup -n %{name}-%{version}/upstream -p1
 
-%make_build                                                             
-                                                                        
-popd                                                                    
-                                                                        
-%install                                                                
-pushd build                                                             
-make DESTDIR=%{buildroot} install                                       
-popd                                                                    
-                                                                        
-%post -p /sbin/ldconfig                                                 
-%postun -p /sbin/ldconfig                                               
+%build
+export QTDIR=%{_opt_qt5_prefix}
+touch .git
+
+%_opt_cmake_kf5
+%cmake_build
+
+%install
+%cmake_install
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files imports
 %license LICENSES/*
