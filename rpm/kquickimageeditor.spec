@@ -2,7 +2,7 @@
 %global qt_version 5.15.9
 
 Name:           opt-kf5-kquickimageeditor
-Version:        0.2.0
+Version:        0.3.0
 Release:        0
 Summary:        A set of QtQuick components for image editing
 License:        LGPL-2.1-or-later
